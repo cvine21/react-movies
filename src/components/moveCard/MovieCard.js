@@ -7,8 +7,8 @@ function MovieCard({ movie }) {
 	const { id, title, medium_cover_image } = movie;
 
 	return (
-		<Link to={"movies/id"} style={{ textDecoration: "none" }}>
-			<li id={id} className="movie__item">
+		<Link to={`movie/${id}`} style={{ textDecoration: "none" }}>
+			<li className="movie__item">
 				<img src={medium_cover_image} alt={title} />
 				<div className="movie__name">{title}</div>
 			</li>

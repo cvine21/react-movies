@@ -7,7 +7,7 @@ function AppHeader() {
 		<header>
 			<Link to="/" style={{ textDecoration: "none" }}>
 				<h1 className="app__title">
-					<span>Movies</span> information portal
+					<span>MOVIES</span> information portal
 				</h1>
 			</Link>
 		</header>
