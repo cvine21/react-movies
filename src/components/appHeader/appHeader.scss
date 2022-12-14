@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.app {
+	// &__header {
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// }
+	&__title {
+		font-weight: bold;
+		font-size: 28px;
+		line-height: 37px;
+		span {
+			color: $main-color;
+		}
+	}
+}
