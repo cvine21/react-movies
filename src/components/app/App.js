@@ -1,17 +1,26 @@
-import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Home from "../../pages/home/Home";
-import { fetchMovieList } from "../../services/movieService";
+import Movie from "../../pages/home/Movie";
 import AppHeader from "../appHeader/AppHeader";
 
 function App() {
 	return (
-		<div className="app">
-			<AppHeader />
-			<main>
-				<Home />
-				{/* <Movie /> */}
-			</main>
-		</div>
+		<Router>
+			<div className="app">
+				<AppHeader />
+				<main>
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/movie/:id">
+							<Movie />
+						</Route>
+					</Switch>
+				</main>
+			</div>
+		</Router>
 	);
 }
 

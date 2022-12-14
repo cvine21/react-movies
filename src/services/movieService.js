@@ -2,10 +2,10 @@ import axios from "axios";
 
 const _apiBase = "https://yts.mx/api/v2/";
 
-export async function fetchMovieList() {
+export async function fetchMovieList(page = 1) {
 	try {
 		const response = await axios.get(
-			`${_apiBase}list_movies.json?limit=50`
+			`${_apiBase}list_movies.json?limit=8&page=${page}`
 		);
 		const movieList = response.data.data.movies;
 
@@ -25,6 +25,7 @@ function _transformMovie(movie) {
 		description_full,
 		medium_cover_image,
 	} = movie;
+
 	return {
 		id,
 		title,
