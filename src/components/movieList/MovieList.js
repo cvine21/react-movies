@@ -17,10 +17,11 @@ function MovieList() {
 	const content = movieList.map((item) => <MovieCard movie={item} />);
 
 	return (
-		<div className="char__content">
-			<div className="char__list">
-				<ul className="char__grid">{content}</ul>
-			</div>
+		<div className="movie__list">
+			<ul className="movie__flex">{content}</ul>
+			<button className="button button__main button__long">
+				<div className="inner">load more</div>
+			</button>
 		</div>
 	);
 }
