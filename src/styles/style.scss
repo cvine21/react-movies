@@ -1,7 +1,7 @@
 @import "./button";
 
 body {
-	background-color: #171717;	
+	background-color: #171717;
 }
 
 .app {
@@ -18,10 +18,7 @@ body {
 }
 
 .container {
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 40px 15px;
 
 	@media (min-width: 1200px) {
 		width: 1170px;

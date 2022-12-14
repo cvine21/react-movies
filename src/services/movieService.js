@@ -39,6 +39,7 @@ function _transformMovie(movie) {
 		year,
 		description_full,
 		medium_cover_image,
+		like_count,
 	} = movie;
 
 	return {
@@ -49,5 +50,6 @@ function _transformMovie(movie) {
 		year,
 		description_full,
 		medium_cover_image,
+		like_count,
 	};
 }

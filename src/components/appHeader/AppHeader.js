@@ -4,7 +4,7 @@ import "./appHeader.scss";
 
 function AppHeader() {
 	return (
-		<header>
+		<header className="app__header">
 			<Link to="/" style={{ textDecoration: "none" }}>
 				<h1 className="app__title">
 					<span>MOVIES</span> information portal

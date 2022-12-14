@@ -5,21 +5,6 @@ import MovieCard from "../moveCard/MovieCard";
 
 import "./movieList.scss";
 
-// const setListContent = (process, Component, newItemLoading) => {
-// 	switch (process) {
-// 		case "pending":
-// 			return <Spinner />;
-// 		case "loading":
-// 			return newItemLoading ? <Component /> : <Spinner />;
-// 		case "success":
-// 			return <Component />;
-// 		case "error":
-// 			return <ErrorMessage />;
-// 		default:
-// 			throw new Error("Unexpected process state");
-// 	}
-// };
-
 function MovieList() {
 	const [movieList, setMovieList] = useState([]);
 	const page = useRef(1);

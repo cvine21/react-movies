@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.movie {
+	&__details {
+		color: white;
+		display: flex;
+	}
+
+	&__poster {
+		img {
+			border: 3px solid $main-color;
+		}
+	}
+
+	&__info {
+		margin-left: 5%;
+
+		span {
+			margin-left: 10px;
+		}
+	}
+}
