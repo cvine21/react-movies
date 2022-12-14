@@ -22,11 +22,16 @@ function Movie() {
 		description_full,
 		medium_cover_image,
 		like_count,
+		background_image,
 	} = movie;
 
 	return (
 		<>
-			<div className="container" id="movie-content">
+			<div
+				style={{ backgroundImage: `url(${background_image})` }}
+				className="container"
+				id="movie-content"
+			>
 				<div className="movie__details">
 					<div className="movie__poster">
 						<img src={medium_cover_image} alt={title} />
