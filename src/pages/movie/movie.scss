@@ -31,9 +31,30 @@
 
 	&__info {
 		margin-left: 5%;
+		font-size: 1.15em;
+		text-shadow: 0 2px 2px rgb(0 0 0 / 40%);
 
 		span {
 			margin-left: 10px;
 		}
+
+		h1 {
+			margin-top: 0;
+		}
+
+		p {
+			color: #919191;
+		}
+	}
+
+	&__likes,
+	&__rating {
+		i {
+			color: $main-color;
+		}
+	}
+
+	&__rating {
+		margin-top: 5px;
 	}
 }

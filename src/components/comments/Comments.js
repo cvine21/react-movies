@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import "./comments.scss";
 
 function Comments({ id }) {
-	const count = useRef(localStorage.length);
 	const [comments, setComments] = useState({});
 	const [comment, setComment] = useState("");
+	const count = useRef(localStorage.length);
 
 	useEffect(() => {
 		let storedComments = JSON.parse(localStorage.getItem(`comments_${id}`));
