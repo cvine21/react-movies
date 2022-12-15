@@ -1,31 +1,39 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import MovieCard from "../../components/moveCard/MovieCard";
-
-import { fetchMovieList } from "../../services/movieService";
+import { fetchMovies, selectMovies } from "../../redux/moviesSlice";
 
 import "./home.scss";
+
 function Home() {
-	const [movieList, setMovieList] = useState([]);
+	const [isLodingNew, setIsLoadingNew] = useState(false);
+	const { items, status } = useSelector(selectMovies);
+	const dispatch = useDispatch();
 	const page = useRef(1);
 
 	useEffect(() => {
-		getMovies();
+		dispatch(fetchMovies());
 	}, []);
 
 	const getMovies = useCallback((page = 1) => {
-		fetchMovieList(page).then((data) => {
-			setMovieList((state) => [...state, ...data]);
-		});
+		dispatch(fetchMovies(page));
 	}, []);
 
 	const onLoadMore = () => {
 		page.current++;
+		setIsLoadingNew(true);
 		getMovies(page.current);
 	};
 
-	const content = movieList.map((item, i) => (
+	const moviesList = items.map((item, i) => (
 		<MovieCard key={i} movie={item} />
 	));
+
+	const content =
+		(status === "loading" && !isLodingNew && (
+			<span className="loader"></span>
+		)) ||
+		moviesList;
 
 	return (
 		<div className="movie__list">

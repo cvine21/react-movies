@@ -1,4 +1,5 @@
 @import "./button";
+@import "./variables.scss";
 
 body {
 	background-color: #1d1d1d;
@@ -24,4 +25,53 @@ body {
 
 .container {
 	padding: 40px 15px;
+}
+
+.loader {
+	margin: 0 auto;
+	padding: 50px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:before,
+	&:after {
+		content: "";
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+		position: relative;
+		margin: 0 5px;
+		border-radius: 50%;
+		color: black;
+		background: currentColor;
+		box-shadow: 50px 0, -50px 0;
+		animation: left 1s infinite ease-in-out;
+	}
+
+	&:after {
+		color: $main-color;
+		animation: right 1.1s infinite ease-in-out;
+	}
+}
+
+@keyframes right {
+	0%,
+	100% {
+		transform: translateY(-10px);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}
+
+@keyframes left {
+	0%,
+	100% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
 }

@@ -19,7 +19,6 @@ function Comments({ id }) {
 
 	const onChangeComment = (e) => {
 		setComment(e.target.value);
-		console.log("change");
 	};
 
 	const onPostComment = () => {
