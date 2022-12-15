@@ -9,21 +9,21 @@ function Home() {
 	const [isLodingNew, setIsLoadingNew] = useState(false);
 	const { items, status } = useSelector(selectMovies);
 	const dispatch = useDispatch();
-	const page = useRef(1);
+	let page = 1;
 
 	useEffect(() => {
-		dispatch(fetchMovies());
+		if (items.length) return;
+		getMovieList();
+	}, [dispatch]);
+
+	const getMovieList = useCallback((pageNum = 1) => {
+		dispatch(fetchMovies(pageNum));
 	}, []);
 
-	const getMovies = useCallback((page = 1) => {
-		dispatch(fetchMovies(page));
-	}, []);
-
-	const onLoadMore = () => {
-		page.current++;
+	const onLoadMore = useCallback(() => {
 		setIsLoadingNew(true);
-		getMovies(page.current);
-	};
+		getMovieList(++page);
+	}, []);
 
 	const moviesList = items.map((item, i) => (
 		<MovieCard key={i} movie={item} />

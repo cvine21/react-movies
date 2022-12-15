@@ -4,7 +4,7 @@ const _apiBase = "https://yts.mx/api/v2/";
 const _apiMovieList = "list_movies.json";
 const _apiMovieDetails = "movie_details.json";
 
-export async function getMovieList(page = 1) {
+export async function getMovieList(page) {
 	try {
 		const response = await axios.get(
 			`${_apiBase}${_apiMovieList}?limit=8&page=${page}`

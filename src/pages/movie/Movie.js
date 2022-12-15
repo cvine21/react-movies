@@ -26,34 +26,37 @@ function Movie() {
 		url,
 	} = item;
 
+	const content = (
+		<div className="movie__details">
+			<div className="movie__poster">
+				<img src={medium_cover_image} alt={title} />
+				<button className="button button__main button__long">
+					<a href={url} target="_blank" rel="noreferrer">
+						<div className="inner">WIKI</div>
+					</a>
+				</button>
+			</div>
+			<div className="movie__info">
+				<h1 className="movie__title">{title}</h1>
+				<h2>{`${year}, ${genres?.join(" / ")}`}</h2>
+				<div className="movie__likes">
+					<i className="fa-solid fa-heart" />
+					<span>{like_count}</span>
+				</div>
+				<div className="movie__rating">
+					<i className="fa-brands fa-imdb" />
+					<span>{rating}</span>
+				</div>
+				<p>{description_full || "No description"}</p>
+			</div>
+		</div>
+	);
+
 	return (
 		<>
 			<div className="container" id="movie-content">
-				{(status === "loading" && <span className="loader"></span>) || (
-					<div className="movie__details">
-						<div className="movie__poster">
-							<img src={medium_cover_image} alt={title} />
-							<button className="button button__main button__long">
-								<a href={url} target="_blank">
-									<div className="inner">WIKI</div>
-								</a>
-							</button>
-						</div>
-						<div className="movie__info">
-							<h1 className="movie__title">{title}</h1>
-							<h2>{`${year}, ${genres?.join(" / ")}`}</h2>
-							<div className="movie__likes">
-								<i className="fa-solid fa-heart" />
-								<span>{like_count}</span>
-							</div>
-							<div className="movie__rating">
-								<i className="fa-brands fa-imdb" />
-								<span>{rating}</span>
-							</div>
-							<p>{description_full || "No description"}</p>
-						</div>
-					</div>
-				)}
+				{(status === "loading" && <span className="loader"></span>) ||
+					content}
 				<Comments id={id} />
 			</div>
 		</>
