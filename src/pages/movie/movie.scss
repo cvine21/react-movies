@@ -18,6 +18,15 @@
 		img {
 			border: 3px solid $main-color;
 		}
+		button {
+			padding: 0;
+			margin: 10px 0 40px;
+			width: 100%;
+			a {
+				color: white;
+				text-decoration: none;
+			}
+		}
 	}
 
 	&__info {

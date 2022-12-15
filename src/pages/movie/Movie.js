@@ -24,6 +24,7 @@ function Movie() {
 		medium_cover_image,
 		like_count,
 		background_image,
+		url,
 	} = movie;
 
 	return (
@@ -31,6 +32,11 @@ function Movie() {
 			<div className="movie__details">
 				<div className="movie__poster">
 					<img src={medium_cover_image} alt={title} />
+					<button className="button button__main button__long">
+						<a href={url} target="_blank">
+							<div className="inner">WIKI</div>
+						</a>
+					</button>
 				</div>
 				<div className="movie__info">
 					<h1 className="movie__title">{title}</h1>

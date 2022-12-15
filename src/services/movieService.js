@@ -41,6 +41,7 @@ function _transformMovie(movie) {
 		medium_cover_image,
 		like_count,
 		background_image,
+		url,
 	} = movie;
 
 	return {
@@ -53,5 +54,6 @@ function _transformMovie(movie) {
 		medium_cover_image,
 		like_count,
 		background_image,
+		url,
 	};
 }
