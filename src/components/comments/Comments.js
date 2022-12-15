@@ -6,7 +6,6 @@ import "./comments.scss";
 
 function Comments({ id }) {
 	const count = useRef(localStorage.length);
-	// const [comments, setComments] = useState([]);
 	const [comments, setComments] = useState({});
 	const [comment, setComment] = useState("");
 
@@ -15,7 +14,7 @@ function Comments({ id }) {
 
 		if (!storedComments) return;
 
-		setComments((state) => ({...state, ...storedComments}));
+		setComments((state) => ({ ...state, ...storedComments }));
 	}, []);
 
 	const onChangeComment = (e) => {
@@ -33,25 +32,26 @@ function Comments({ id }) {
 			[comId]: comment,
 		};
 
-		setComments(newComments);
 		count.current++;
+		setComments(newComments);
 		localStorage.setItem(`comments_${id}`, JSON.stringify(newComments));
-		console.log(Object.values(newComments));
 	};
 
-	// const content = comments.map((text, i) => (
-	// 	<div key={i} className="comment__container">
-	// 		{text}
-	// 	</div>
-	// ));
+	let content = [];
 
-	// const storedCom = Object.values(
-	// 	JSON.parse(localStorage.getItem(`comments_${id}`))
-	// );
+	const onDelete = (comId) => {
+		const newComments = Object.assign({}, comments);
 
-	const content = Object.values(comments).map((text, i) => (
-		<div key={i} className="comment__container">
-			{text}
+		delete newComments[comId];
+
+		setComments(newComments);
+		localStorage.setItem(`comments_${id}`, JSON.stringify(newComments));
+	};
+
+	content = Object.keys(comments).map((id, i) => (
+		<div key={id} className="comment__container">
+			<p className="comment__text">{comments[id]}</p>
+			<i onClick={() => onDelete(id)} className="fa-solid fa-trash"></i>
 		</div>
 	));
 
