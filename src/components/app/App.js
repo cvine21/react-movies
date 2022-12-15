@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "../../pages/home/Home";
-import Movie from "../../pages/home/Movie";
+import Movie from "../../pages/movie/Movie";
 import AppHeader from "../appHeader/AppHeader";
 
 function App() {

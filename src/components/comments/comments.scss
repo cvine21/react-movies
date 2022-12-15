@@ -1,0 +1,40 @@
+.movie {
+	&__comments {
+		color: white;
+
+		span {
+			margin-left: 10px;
+		}
+
+		.comment {
+			&__container {
+				width: 456px;
+				background: #171717;
+				border-radius: 5px;
+				margin: 10px 0;
+				word-break: break-all;
+				padding: 20px;
+				margin-bottom: 5px;
+			}
+
+			&__flex {
+				display: flex;
+				flex-direction: column;
+
+				button {
+					margin: 15px 0;
+				}
+			}
+		}
+
+		.input-box {
+			height: 75px;
+			width: 456px;
+			margin: 10px 0;
+			padding: 20px;
+			margin-bottom: 5px;
+			background-color: #171717;
+			color: white;
+		}
+	}
+}
